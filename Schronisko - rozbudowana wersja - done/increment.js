@@ -96,9 +96,14 @@ function addElement() {
   // 3. Przypisz zawartość tekstową do twojego przycisku. Mozesz to zrobić poprzez przypisanie wartości do właściwości innerText (analogicznie jak w linii 77). W zaleznosci od przycisku, powinieneś przypisać "+" lub "-".
 
   // 4. Umieść gotowy element na stronie. Postępuj analogicznie jak w linii 78.
+    
+ // Tak wygląda kod: 
 
-
-
+  var newButton = document.createElement('div');
+  newButton.classList.add('dec');
+  newButton.innerText = "-";
+  newPetContainer.insertAdjacentElement('beforeend', newButton);
+  console.log(newButton); 
 
   document.querySelector('#myDIV').insertAdjacentElement('beforebegin', newPetContainer);
 }
