@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sortowanie Nazwisk</title>
+</head>
+<body>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: url("https://source.unsplash.com/nDqA4d5NL0k/2000x2000");
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    #nazwiska {
+      list-style: inside square;
+      font-size: 20px;
+      background: white;
+      width: 500px;
+      margin: auto;
+      padding: 0;
+      box-shadow: 0 0 0 20px rgba(0, 0, 0, 0.05);
+    }
+
+    #nazwiska li {
+      border-bottom: 1px solid #efefef;
+      padding: 20px;
+    }
+
+    #nazwiska li:last-child {
+      border-bottom: 0;
+    }
+
+    a {
+      color: #ffc600;
+      text-decoration: none;
+    }
+
+  </style>
+
+  <ul id="nazwiska"></ul>
+
+<script>
+
+const nazwiska = ['Pan Kołodziej', 'Pani Kubiak', 'Pan Lewandowski', 'Pani Górecka', 'Pan Sokołowski', 'Pani Szczepańska', 'Pan Borkowski', 'Pani Kowalczyk', 'Pan Krychowiak', 'Pani Kaźimierczak'];
+
+function strip(listaNazwisk) {
+  return listaNazwisk.replace(/^(Pan |Pani )/i, '').trim();
+}
+
+const posortowaneNazwiska = nazwiska.sort(function (a, b) {
+  if (strip(a) > strip(b)) {
+    return 1;
+  } else {
+    return -1;
+  }
+})
+
+document.querySelector('#nazwiska').innerHTML = 
+    posortowaneNazwiska
+    .map(nazwisko => `<li>${nazwisko}</li>`)
+    .join(''); 
+
+</script>
+
+</body>
+</html>
